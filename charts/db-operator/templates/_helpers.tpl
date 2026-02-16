@@ -40,6 +40,7 @@ Arguments builder
 */}}
 {{- define "db-operator.args" -}}
 {{- $args := list -}}
+{{- $args = append $args (printf "--zap-log-level=%s" .Values.controller.logLevel) -}}
 {{- if .Values.checkForChanges -}}
 {{- $args = append $args "--check-for-changes" -}}
 {{- end -}}
