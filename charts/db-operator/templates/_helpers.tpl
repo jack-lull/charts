@@ -96,6 +96,7 @@ Webhook extra args
 */}}
 {{- define "webhook.args" -}}
 {{- $args := list -}}
+{{- $args = append $args (printf "--zap-log-level=%s" .Values.webhook.logLevel) -}}
 {{- $args = append $args "--webhook" -}}
 {{- with .Values.webhook }}
 {{- range .extraArgs -}}
